@@ -25,6 +25,9 @@ A full-stack Video Library web app built using **⚛️ React**, **🚀 Express*
 - 🍃 MongoDB
 - 🔓 CORS
 
+### Deployment:
+- ☁️ Firebase Hosting (Frontend)
+
 ---
 
 ## ✨ Features
@@ -34,9 +37,6 @@ A full-stack Video Library web app built using **⚛️ React**, **🚀 Express*
 - ✅ Form Validation with Formik & Yup
 - 🌐 REST API powered by Express & MongoDB
 - 📱 Responsive UI using Bootstrap
-
-  ### Deployment:
-- ☁️ Firebase Hosting (Frontend)
 
 ---
 
