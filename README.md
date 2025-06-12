@@ -35,6 +35,9 @@ A full-stack Video Library web app built using **⚛️ React**, **🚀 Express*
 - 🌐 REST API powered by Express & MongoDB
 - 📱 Responsive UI using Bootstrap
 
+  ### Deployment:
+- ☁️ Firebase Hosting (Frontend)
+
 ---
 
 ## 🛠️ Getting Started
