@@ -44,11 +44,10 @@ A full-stack Video Library web app built using **⚛️ React**, **🚀 Express*
 ```bash
 git clone https://github.com/arpitdurge37/Video-Library-Project.git
 cd video-library-project
-npm install
-npm start
+npm install (Install Dependencies)
+npm start (Start the Frontend)
 
 🌐 Start the Backend (API Server)
-
 cd business-layer
 node rest-api.js
 
