@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+.container-fluid {
+  position: relative;
+  background-image: url("/public/netflix-banner.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  padding: 20px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* 🔥 Overlay layer to dim background */
+.container-fluid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 👈 0.5 means 50% dim */
+  z-index: -1; /* Layer stays behind the content */
+}
