@@ -1,29 +1,28 @@
-import axios from "axios"
+import axiosInstance from "../axiosConfig"; // ✅ use shared axios config
 import { useFormik } from "formik"
 import { useNavigate } from "react-router-dom"
 
-
-export   function UserRegister(){
-
+export function UserRegister() {
     let navigate = useNavigate();
+
     const formik = useFormik({
         initialValues: {
-            UserId:'',
+            UserId: '',
             UserName: '',
             Password: '',
-            Email:'',
-            Mobile:''
+            Email: '',
+            Mobile: ''
         },
-        onSubmit: (user)=> {
-            axios.post(`http://127.0.0.1:3030/register-user,user`)
-            .then(()=>{
-                alert('User Registered');
-                navigate('/user-login');
-            })
+        onSubmit: (user) => {
+            axiosInstance.post('/register-user', user) // ✅ correct usage
+                .then(() => {
+                    alert('User Registered');
+                    navigate('/user-login');
+                });
         }
-    })
+    });
 
-    return(
+    return (
         <div>
             <form onSubmit={formik.handleSubmit}>
                 <h3>Register User</h3>
@@ -33,7 +32,7 @@ export   function UserRegister(){
                     <dt>User Name</dt>
                     <dd><input type="text" onChange={formik.handleChange} name="UserName" /></dd>
                     <dt>Password</dt>
-                    <dd><input type="password" onChange={formik.handleChange} name="Password"/></dd>
+                    <dd><input type="password" onChange={formik.handleChange} name="Password" /></dd>
                     <dt>Email</dt>
                     <dd><input type="email" onChange={formik.handleChange} name="Email" /></dd>
                     <dt>Mobile</dt>
@@ -42,5 +41,5 @@ export   function UserRegister(){
                 <button type="submit" className="btn btn-warning">Register</button>
             </form>
         </div>
-    )
+    );
 }

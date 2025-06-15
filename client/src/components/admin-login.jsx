@@ -1,4 +1,4 @@
-import axiosInstance from "../axiosConfig"; // 👈 yeh import karna h
+import axiosInstance from "../axiosConfig";
 import { useFormik } from "formik";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
@@ -8,7 +8,7 @@ export function AdminLogin() {
 
     const [admin, setAdmin] = useState([{ UserId: '', UserName: '', Password: '', Email: '', Mobile: '' }]);
     let navigate = useNavigate();
-    const [cookies, setCookie, removeCookie] = useCookies(['admin-id']); // [] brackets theek kiya
+    const [cookies, setCookie, removeCookie] = useCookies(['admin-id']); 
 
     const formik = useFormik({
         initialValues: {
@@ -16,7 +16,7 @@ export function AdminLogin() {
             Password: ''
         },
         onSubmit: (admin) => {
-            axiosInstance.get('/get-admin') // 👈 yahan bhi replace kiya
+            axiosInstance.get('/get-admin') 
                 .then(response => {
                     if (admin.UserId === response.data[0].UserId && admin.Password === response.data[0].Password) {
                         setCookie('admin-id', admin.UserId);

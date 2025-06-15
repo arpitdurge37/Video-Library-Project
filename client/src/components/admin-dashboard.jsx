@@ -1,19 +1,20 @@
 // admin-dashboard.jsx
 
-import axios from "../axiosConfig"; // ✅ use custom axios config
+import axios from "../axiosConfig"; // ✅ custom axios config
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function AdminDashBoard() {
-    const [videos, setVideos] = useState([{
-        VideoId: 0, Title: '', Url: '', Description: '',
-        Views: 0, Likes: 0, Dislikes: 0, CategoryId: 0
-    }]);
+    const [videos, setVideos] = useState([]);
 
     function LoadVideos() {
-        axios.get('/get-videos') // ✅ updated URL
+        axios.get("/get-videos")
             .then(response => {
                 setVideos(response.data);
+            })
+            .catch(error => {
+                console.error("Error loading videos:", error);
+                alert("Failed to load videos. Please check your backend server.");
             });
     }
 
@@ -35,22 +36,28 @@ export function AdminDashBoard() {
                 </thead>
                 <tbody>
                     {
-                        videos.map(video =>
-                            <tr key={video.VideoId}>
-                                <td>{video.Title}</td>
-                                <td>
-                                    <iframe
-                                        width="400"
-                                        height="100"
-                                        src={video.Url}
-                                        title={video.Title}
-                                        allowFullScreen>
-                                    </iframe>
-                                </td>
-                                <td>
-                                    <Link to={`/edit-video/${video.VideoId}`} className="bi bi-pen btn btn-warning"></Link>
-                                    <Link to={`/delete-video/${video.VideoId}`} className="bi ms-2 bi-trash-fill btn btn-danger"></Link>
-                                </td>
+                        videos.length > 0 ? (
+                            videos.map(video =>
+                                <tr key={video.VideoId}>
+                                    <td>{video.Title}</td>
+                                    <td>
+                                        <iframe
+                                            width="400"
+                                            height="100"
+                                            src={video.Url}
+                                            title={video.Title}
+                                            allowFullScreen>
+                                        </iframe>
+                                    </td>
+                                    <td>
+                                        <Link to={`/edit-video/${video.VideoId}`} className="bi bi-pen btn btn-warning"></Link>
+                                        <Link to={`/delete-video/${video.VideoId}`} className="bi ms-2 bi-trash-fill btn btn-danger"></Link>
+                                    </td>
+                                </tr>
+                            )
+                        ) : (
+                            <tr>
+                                <td colSpan="3" className="text-center text-muted">No videos found.</td>
                             </tr>
                         )
                     }

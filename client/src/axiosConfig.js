@@ -1,7 +1,8 @@
-import axios from 'axios';
+// src/axiosConfig.js
+import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: 'http://127.0.0.1:3030', // ✅ local backend URL
+  baseURL: "http://localhost:3030",  // ✅ Must match backend port
 });
 
 export default axiosInstance;
