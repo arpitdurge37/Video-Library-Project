@@ -1,4 +1,6 @@
-import axios from "axios";
+// admin-add-video.jsx
+
+import axios from "../axiosConfig"; // ✅ use custom axios config
 import { useFormik } from "formik";
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
