@@ -15,7 +15,7 @@ export   function UserRegister(){
             Mobile:''
         },
         onSubmit: (user)=> {
-            axios.post(`http://127.0.0.1:3030/register-user`,user)
+            axios.post(`http://127.0.0.1:3030/register-user,user`)
             .then(()=>{
                 alert('User Registered');
                 navigate('/user-login');

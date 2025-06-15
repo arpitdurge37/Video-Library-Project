@@ -57,7 +57,7 @@ export function UserDashboard() {
                     videos.map(video =>
                         <div key={video.VideoId} className="card m-2 p-2" style={{ width: '250px' }}> {/* ✅ Fix width */}
                             <div className="card-header" style={{ height: '200px' }}>
-                                <iframe src={video.Url} width="100%" height="200" title={video.Title}></iframe>
+                                <iframe src={video.Url} width="100%" height="200"></iframe>
                             </div>
                             <div className="card-body">
                                 {video.Title}
