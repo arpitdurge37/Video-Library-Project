@@ -1,0 +1,14 @@
+{
+  "name": "video-library-backend",
+  "version": "1.0.0",
+  "description": "Backend for Video Library Project",
+  "main": "rest-api.js",
+  "scripts": {
+    "start": "node rest-api.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongodb": "^6.17.0"
+  }
+}
