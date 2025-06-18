@@ -1,31 +1,30 @@
-import axios from "axios"
-import { useFormik } from "formik"
-import { useNavigate } from "react-router-dom"
+import axios from "axios";
+import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 
-
-export   function UserRegister(){
+export function UserRegister() {
 
     let navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
-            UserId:'',
+            UserId: '',
             UserName: '',
             Password: '',
-            Email:'',
-            Mobile:''
+            Email: '',
+            Mobile: ''
         },
-        onSubmit: (user)=> {
-            axios.post(`http://127.0.0.1:3030/register-user`,user)
-            .then(()=>{
-                alert('User Registered');
-                navigate('/user-login');
-            })
+        onSubmit: (user) => {
+            axios.post(`https://video-library-project.onrender.com/register-user`, user)
+                .then(() => {
+                    alert('User Registered');
+                    navigate('/user-login');
+                });
         }
-    })
+    });
 
-    return(
+    return (
         <div className="d-flex justify-content-center align-items-center">
-            <form  onSubmit={formik.handleSubmit}>
+            <form onSubmit={formik.handleSubmit}>
                 <h3>Register User</h3>
                 <dl>
                     <dt>UserId</dt>
@@ -33,7 +32,7 @@ export   function UserRegister(){
                     <dt>User Name</dt>
                     <dd><input type="text" onChange={formik.handleChange} name="UserName" /></dd>
                     <dt>Password</dt>
-                    <dd><input type="password" onChange={formik.handleChange} name="Password"/></dd>
+                    <dd><input type="password" onChange={formik.handleChange} name="Password" /></dd>
                     <dt>Email</dt>
                     <dd><input type="email" onChange={formik.handleChange} name="Email" /></dd>
                     <dt>Mobile</dt>
@@ -42,5 +41,5 @@ export   function UserRegister(){
                 <button type="submit" className="btn btn-warning w-100">Register</button>
             </form>
         </div>
-    )
+    );
 }
